@@ -25,8 +25,8 @@ export async function getMessages(token: string | undefined) {
 export async function createMessage(content: string, authorId: string, authorName: string, authorImageUrl: string | undefined, token: string | undefined) {
   const sql = connectToDatabase(token);
   await sql`
-    INSERT INTO messages (content, author_id, author_name, author_image_url)
-    VALUES (${content}, ${authorId}, ${authorName}, ${authorImageUrl})
+    INSERT INTO messages (content, author_name, author_image_url)
+    VALUES (${content}, ${authorName}, ${authorImageUrl})
   `;
 }
 
